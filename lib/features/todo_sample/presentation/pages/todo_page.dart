@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:loyal_member/features/todo/presentation/controllers/todo_controller.dart';
+import 'package:loyal_member/features/todo_sample/presentation/controllers/todo_controller.dart';
 import 'package:loyal_member/core/custom_widgets/custom_list/custom_list.dart';
-import 'package:loyal_member/features/todo/domain/entities/todo.dart';
+import 'package:loyal_member/features/todo_sample/domain/entities/todo.dart';
 
 class TodoPage extends StatelessWidget {
   const TodoPage({super.key});

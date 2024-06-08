@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'features/todo/presentation/pages/todo_page.dart';
-import 'features/todo/presentation/bindings/todo_binding.dart';
+import 'features/todo_sample/presentation/pages/todo_page.dart';
+import 'features/todo_sample/presentation/bindings/todo_binding.dart';
 import 'features/account/presentation/pages/account_page.dart';
 
 void main() {

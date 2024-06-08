@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:loyal_member/features/todo/data/models/todo_model.dart';
+import 'package:loyal_member/features/todo_sample//data/models/todo_model.dart';
 import 'package:loyal_member/core/network/dio_client.dart';
 
 class TodoRemoteDataSource {

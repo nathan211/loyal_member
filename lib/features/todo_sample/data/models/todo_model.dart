@@ -1,4 +1,4 @@
-import 'package:loyal_member/features/todo/domain/entities/todo.dart';
+import 'package:loyal_member/features/todo_sample/domain/entities/todo.dart';
 
 class TodoModel {
   final int id;

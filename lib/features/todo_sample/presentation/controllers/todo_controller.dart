@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:loyal_member/features/todo/domain/entities/todo.dart';
-import 'package:loyal_member/features/todo/domain/usecases/get_todos.dart';
+import 'package:loyal_member/features/todo_sample/domain/entities/todo.dart';
+import 'package:loyal_member/features/todo_sample/domain/usecases/get_todos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:loyal_member/core/error/failures.dart';
 

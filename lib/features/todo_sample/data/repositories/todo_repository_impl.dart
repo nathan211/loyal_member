@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:loyal_member/core/error/failures.dart';
-import 'package:loyal_member/features/todo/domain/entities/todo.dart';
-import 'package:loyal_member/features/todo/domain/repositories/todo_repository.dart';
-import 'package:loyal_member/features/todo/data/data_sources/todo_remote_data_source.dart';
+import 'package:loyal_member/features/todo_sample/domain/entities/todo.dart';
+import 'package:loyal_member/features/todo_sample/domain/repositories/todo_repository.dart';
+import 'package:loyal_member/features/todo_sample/data/data_sources/todo_remote_data_source.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
   final TodoRemoteDataSource todoRemoteDataSource;
