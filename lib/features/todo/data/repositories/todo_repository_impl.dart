@@ -2,17 +2,17 @@ import 'package:dartz/dartz.dart';
 import 'package:loyal_member/core/error/failures.dart';
 import 'package:loyal_member/features/todo/domain/entities/todo.dart';
 import 'package:loyal_member/features/todo/domain/repositories/todo_repository.dart';
-import 'package:loyal_member/features/todo/data/data_sources/todo_service.dart';
+import 'package:loyal_member/features/todo/data/data_sources/todo_remote_data_source.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
-  final TodoService todoService;
+  final TodoRemoteDataSource todoRemoteDataSource;
 
-  TodoRepositoryImpl(this.todoService);
+  TodoRepositoryImpl(this.todoRemoteDataSource);
 
   @override
   Future<Either<Failure, List<Todo>>> getTodos() async {
     try {
-      final todoModels = await todoService.fetchTodos();
+      final todoModels = await todoRemoteDataSource.fetchTodos();
       final todos = todoModels.map((model) => model.toEntity()).toList();
       return Right(todos);
     } catch (e) {

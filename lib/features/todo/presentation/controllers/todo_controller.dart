@@ -9,7 +9,11 @@ import '../../../../core/usecases/usecase.dart';
 
 class TodoController extends GetxController {
   var todos = <Todo>[].obs;
-  var isLoading = true.obs;
+  var isLoading = false.obs;
+  var isMoreLoading = false.obs;
+  var page = 1;
+  var hasMore = true.obs;
+
   final GetTodos getTodos;
 
   TodoController(this.getTodos);
@@ -21,8 +25,10 @@ class TodoController extends GetxController {
   }
 
   void fetchTodos() async {
+    if (isLoading.value || isMoreLoading.value) return;
+
+    isLoading(true);
     try {
-      isLoading(true);
       Either<Failure, List<Todo>> result = await getTodos(NoParams());
       result.fold(
             (failure) {
@@ -31,10 +37,36 @@ class TodoController extends GetxController {
         },
             (todoList) {
           todos.assignAll(todoList);
+          page++;
         },
       );
     } finally {
       isLoading(false);
+    }
+  }
+
+  Future<void> loadMore() async {
+    if (isLoading.value || isMoreLoading.value || !hasMore.value) return;
+
+    isMoreLoading(true);
+    try {
+      Either<Failure, List<Todo>> result = await getTodos(NoParams());
+      result.fold(
+            (failure) {
+          // handle failure
+          debugPrint(failure.message);
+        },
+            (todoList) {
+          if (todoList.isEmpty) {
+            hasMore(false);
+          } else {
+            todos.addAll(todoList);
+            page++;
+          }
+        },
+      );
+    } finally {
+      isMoreLoading(false);
     }
   }
 }

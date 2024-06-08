@@ -5,8 +5,8 @@ class DioClient {
   DioClient._internal() {
     _dio = Dio()
       ..options.baseUrl = 'https://jsonplaceholder.typicode.com/'
-      ..options.connectTimeout = const Duration(milliseconds: 5000)
-      ..options.receiveTimeout = const Duration(milliseconds: 3000)
+      ..options.connectTimeout = const Duration(seconds: 60)
+      ..options.receiveTimeout = const Duration(seconds: 60)
       ..interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
   }
 
